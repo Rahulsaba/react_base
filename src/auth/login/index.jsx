@@ -13,8 +13,8 @@ import toast from 'react-hot-toast';
 
 export default function Login() {
     var title = 'Login';
-    var dispatch = useDispatch();
     DocumentTitle(title);
+    var dispatch = useDispatch();
     const navigate = useNavigate();
     const [passwordIcon, setPasswordIcon] = useState(!1);
     const { loading, error, success, userToken } = useSelector((state) => state.auth)
