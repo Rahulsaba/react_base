@@ -2,34 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    html{
+:root {
+    --main-color: #f8285a;
+    --text_body: #252f4a;
+}
+
+@layer base {
+    html {
         font-family: "Inter", "sans-serif";
         font-size: 16px;
         font-weight: 400;
         color: #252f4a;
     }
 }
+
 @layer components {
     .btn_primary {
-        @apply w-full bg-[#f8285a] hover:bg-rose-400 rounded-lg border-[border-rose-500] font-inter font-medium text-8125 px-4 py-2 text-white  hover:text-white hover:border-transparent;
+        @apply w-full bg-[var(--main-color)] hover:bg-rose-400 rounded-lg border-[border-rose-500] font-inter font-medium text-8125 px-4 py-2 text-white hover:text-white hover:border-transparent;
     }
+
     .flex_main {
         @apply flex items-center justify-center;
     }
-    .input_primary {
-        @apply focus:outline-none focus:ring-0 border-2 focus:border-gray-400 caret-pink-500  border-[#dbdfe9] bg-[#fcfcfc] w-full rounded p-2 px-3 ;
+    .flex_between {
+        @apply flex items-center justify-between;
     }
+
+    .input_primary {
+        @apply focus:outline-none focus:ring-0 border-2 focus:border-gray-400 caret-pink-500 border-[#dbdfe9] bg-[#fcfcfc] w-full rounded p-2 px-3;
+    }
+
     .link_primary {
-        @apply font-medium text-main_color font-inter text-8125 hover:text-rose-400;
+        @apply font-medium text-[var(--main-color)] font-inter text-8125 hover:text-rose-400;
     }
 
 }
-input::placeholder {
-    columns: #99a1b7;
-    padding: 2px;
-    font-size: 14px;
+
+input {
+    color: var(--text_body);
+    &::placeholder {
+        columns: #99a1b7;
+        padding: 2px;
+        font-size: 14px;
+    }
 }
+
+
 .login_bg {
     background-image: url('assets/login_bg.webp');
     background-repeat: no-repeat;
@@ -104,7 +122,7 @@ input::placeholder {
 
 /* Loader */
 
-  .button_loader {
+.button_loader {
     --uib-size: 20px;
     --uib-color: white;
     --uib-speed: 2s;
@@ -115,9 +133,9 @@ input::placeholder {
     animation: rotate var(--uib-speed) linear infinite;
     will-change: transform;
     overflow: visible;
-  }
+}
 
-  .button_loader_2 {
+.button_loader_2 {
     fill: none;
     stroke: var(--uib-color);
     stroke-dasharray: 1, 200;
@@ -126,35 +144,33 @@ input::placeholder {
     animation: stretch calc(var(--uib-speed) * 0.75) ease-in-out infinite;
     will-change: stroke-dasharray, stroke-dashoffset;
     transition: stroke 0.5s ease;
-  }
+}
 
-  .button_loader_1 {
+.button_loader_1 {
     fill: none;
     stroke: var(--uib-color);
     opacity: var(--uib-bg-opacity);
     transition: stroke 0.5s ease;
-  }
+}
 
-  @keyframes rotate {
+@keyframes rotate {
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
-  @keyframes stretch {
+@keyframes stretch {
     0% {
-      stroke-dasharray: 0, 150;
-      stroke-dashoffset: 0;
+        stroke-dasharray: 0, 150;
+        stroke-dashoffset: 0;
     }
+
     50% {
-      stroke-dasharray: 75, 150;
-      stroke-dashoffset: -25;
+        stroke-dasharray: 75, 150;
+        stroke-dashoffset: -25;
     }
+
     100% {
-      stroke-dashoffset: -100;
+        stroke-dashoffset: -100;
     }
-  }
-
-
-
-  
+}

@@ -22,3 +22,5 @@ basic fetch using javascript
         // const token = localStorage.getItem("token");
         // console.log(token, 'token');
         // navigate("/home");
+
+        how to use variable css in tail wind css bg-[--main_color]

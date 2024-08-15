@@ -20,16 +20,17 @@ export default function Login() {
     const { loading, error, success, userToken } = useSelector((state) => state.auth)
 
     const { control, handleSubmit, formState: { errors }, } = useForm();
-    const onSubmit = async (data, e) => {
-
-        await dispatch(userLogin(data));
+    const onSubmit = (data, e) => {
+        e.preventDefault();
+        dispatch(userLogin(data));
     };
-
-    if (userToken) navigate('/home');
+    
+        if (userToken) navigate('/home');
+   
     return (
         <>
             <div className="min-h-screen mx-auto w-100 flex_main login_bg" >
-                <form className="flex flex-col gap-4 p-10 bg-white rounded-lg sm:p-5 w-96" onSubmit={handleSubmit(onSubmit)} >
+                <form className="flex flex-col gap-4 p-10 bg-white rounded-lg bo b sm:p-5 w-96" onSubmit={handleSubmit(onSubmit)} >
                     <div className="flex justify-center">
                         {/* https://www.bluemizzle.com/assets/images/logo.png */}
                         <img
@@ -68,17 +69,17 @@ export default function Login() {
                                 />}
                         />
                         <span
-                            onClick={(e) => (setPasswordIcon((params) => (!params)))}
+                            onClick={() => (setPasswordIcon((params) => (!params)))}
                             className="absolute right-0 flex h-3 pr-3 text-gray-500 cursor-pointer inset-y-9">
                             {
                                 passwordIcon ? <Eye size={22} className='text-main_color' /> : <EyeSlash size={23} />
                             }
                         </span>
                     </div>
-                    <div className='flex items-center justify-between'>
-                        <div>
-                            <input type="checkbox" id="remember" name="remember" />
-                            <label htmlFor="remember" className='font-medium text-8125 font-inter'> Remember me</label>
+                    <div className='flex_between'>
+                        <div className="flex_main gap-1.5">
+                            <input type="checkbox" id="remember" name="remember" className="accent-main_color" />
+                            <label htmlFor="remember" className='font-medium text-8125 font-inter '> Remember me</label>
                         </div>
                         <div>
                             <Links path={'/password'} content='Forget Password ?' className='' />
