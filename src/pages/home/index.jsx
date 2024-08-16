@@ -14,7 +14,7 @@ export default function Home() {
  
 
   return (
-    <div className='h-[calc(100vh-64px)]  dark:bg-black dark:text-white'>
+    <div className='h-[calc(100vh-64px)]  dark:bg-black dark:text-white bg-white text-black'>
       Home {React.version}
       
     </div>

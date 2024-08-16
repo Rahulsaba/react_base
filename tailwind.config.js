@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+
+module.exports = {
+  darkMode: 'selector',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    darkMode: "class",
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
@@ -14,10 +15,10 @@ export default {
         8125: '.8125rem',
       },
       colors: {
-        'text_body':'#252f4a',
-        'main_color': '#f8285a',
-        'text_primary': '#071437',
-        'text_secondary': '#78829d',
+        'text_body':'var(--text_body)',
+        'main_color': 'var(--main-color)',
+        'text_primary': 'var(--text-primary)',
+        'text_secondary': 'var(--text-secondary)',
       },
       screens: {
 
@@ -35,6 +36,7 @@ export default {
 
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
+        'xm': {'max': '400px'}
       }
     },
   },

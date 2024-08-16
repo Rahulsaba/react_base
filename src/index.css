@@ -4,7 +4,9 @@
 
 :root {
     --main-color: #f8285a;
-    --text_body: #252f4a;
+    --text-primary:#071437;
+    --text-body: #252f4a;
+    --text-secondary:#78829d;
 }
 
 @layer base {

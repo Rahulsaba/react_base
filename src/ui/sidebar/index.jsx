@@ -9,7 +9,7 @@ export default function SideBar() {
 
 
     return (
-        <div className={`${toggle ? 'w-64 sm:w-screen' : 'w-16'} transition  min-h-screen bg-[#0b0c10]`}>
+        <div className={`${toggle ? 'w-64 sm:w-screen' : 'w-16'} transition  min-h-screen bg-white dark:bg-[#0b0c10]`}>
             <div className="p-5 flex_between">
                 <div className="text-main_color">
                     JSR
@@ -17,8 +17,8 @@ export default function SideBar() {
                 <div className="cursor-pointer flex_main " onClick={() => (setToggle((params) => (!params)))}>
                     {
                         toggle ?
-                            <SignOut size={22} className="text-white" /> :
-                            <SignIn size={22} className="text-white" />
+                            <SignOut size={22} className="text-black dark:text-white" /> :
+                            <SignIn size={22} className="text-black dark:text-white" />
                     }
                 </div>
             </div>
