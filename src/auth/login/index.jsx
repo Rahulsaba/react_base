@@ -1,19 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useForm, Controller } from 'react-hook-form';
+import { userLogin } from '@/auth/features/authAction/authAction';
 import { Button, ButtonLoader, Input, Links, Loader } from "@/path";
-import { registerOptions } from '@/helpers/schema/authSchema'
-import DocumentTitle from '@/helpers/DocumentTitle';
 import { Eye, EyeSlash } from '@phosphor-icons/react';
 import logo from '@/assets/logo.svg';
-import { userLogin } from '@/auth/features/authAction/authAction';
-import { useDispatch, useSelector } from 'react-redux';
+import { registerOptions } from '@/helpers/schema/authSchema'
+import DocumentTitle from '@/helpers/DocumentTitle';
 import toast from 'react-hot-toast';
 
 
 export default function Login() {
-    var title = 'Login';
-    DocumentTitle(title);
+    DocumentTitle('Login');
     var dispatch = useDispatch();
     const navigate = useNavigate();
     const [passwordIcon, setPasswordIcon] = useState(!1);
@@ -24,8 +23,7 @@ export default function Login() {
         e.preventDefault();
         dispatch(userLogin(data));
     };
-    
-        if (userToken) navigate('/home');
+    if (userToken) navigate('/home');
    
     return (
         <>

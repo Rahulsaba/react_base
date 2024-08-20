@@ -1,43 +1,45 @@
+import React from "react";
 import { useState } from "react";
 import logo from '@/assets/logo.svg';
-import pathName from './navbar';
 import { Links } from "@/path";
-import { SignIn, SignOut } from "@phosphor-icons/react";
+import { List ,House ,X} from "@phosphor-icons/react";
 
 export default function SideBar() {
-    const [toggle, setToggle] = useState(false);
-
-
+    const [toggle, setToggle] = useState(0);
+    const pathName = [
+        { icon: <House size={20} />, path: "/home" },
+        { icon: <House size={20} />, path: "/about" }
+    ];
     return (
-        <div className={`${toggle ? 'w-64 sm:w-screen' : 'w-16'} transition  min-h-screen bg-white dark:bg-[#0b0c10]`}>
-            <div className="p-5 flex_between">
+        <div className={`${toggle ? 'w-64 sm:w-screen min-h-screen' : 'w-16 min-h-screen'} p-2 transition  min-h-screen bg-white dark:bg-[#0b0c10] border-r-2`}>
+            <div className={"gap-3 flex_between"}>
                 <div className="text-main_color">
-                    JSR
+                    
                 </div>
-                <div className="cursor-pointer flex_main " onClick={() => (setToggle((params) => (!params)))}>
+                <div className="relative cursor-pointer flex_main" onClick={() => (setToggle((params) => (!params)))}>
                     {
                         toggle ?
-                            <SignOut size={22} className="text-black dark:text-white" /> :
-                            <SignIn size={22} className="text-black dark:text-white" />
+                            <X size={22} className="text-black dark:text-white z-2 " /> :
+                            <List size={22}  className="text-black dark:text-white" />
                     }
                 </div>
             </div>
-
             <div>
-                {
-                    pathName.map((paths) => (
-                        <ul key={paths.length} className=" flex_main">
-                            <li className="p-5">
+                <ul className="">
+                    {
+                        pathName.map((paths, index) => (
+                            <li key={index} className="gap-2 p-5 flex_main">
                                 <Links
-                                    path={paths}
-                                    content={paths.split('/') }
-                                    className=''
+                                    path={paths.path}
+                                    content={ toggle ? paths.path.split("/") : '' }
+                                    className='flex gap-2'
                                     onClick={() => (setToggle(0))}
+                                    icon={paths.icon}
                                 />
                             </li>
-                        </ul>
-                    ))
-                }
+                        ))
+                    }
+                </ul>
             </div>
         </div>
     )

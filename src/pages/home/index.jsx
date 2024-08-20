@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import DocumentTitle from '@/helpers/DocumentTitle';
 
 export default function Home() {
-  var title = 'Home';
-  DocumentTitle(title);
+
+  DocumentTitle('Home');
   
   const { loading, error, success, userToken } = useSelector((state) => state.auth);
 
